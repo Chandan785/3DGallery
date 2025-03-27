@@ -122,9 +122,15 @@ body {
 }
 
 
-#image-upload {
+.image-container {
 
   position: absolute;
+  padding-right: 20%;
   padding-top: 10%;
   padding-left: 80%;
+  display: flex;
+}
+
+#image-upload {
+ border:  2px solid gold;
 }
