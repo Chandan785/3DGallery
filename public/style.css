@@ -120,3 +120,11 @@ body {
             transform: rotateY(0deg);
   }
 }
+
+
+#image-upload {
+
+  position: absolute;
+  padding-top: 10%;
+  padding-left: 80%;
+}

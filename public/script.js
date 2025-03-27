@@ -116,3 +116,37 @@ document.onmousewheel = function(e) {
   radius += d;
   init(1);
 };
+
+
+// Add image to gallery
+document.getElementById("image-upload").addEventListener("change", function (event) {
+  let file = event.target.files[0]; // Get the uploaded file
+  if (file) {
+      let reader = new FileReader();
+
+      reader.onload = function (e) {
+          let newImg = document.createElement("img");
+          newImg.src = e.target.result;
+          newImg.alt = "New Image";
+
+          let spinContainer = document.getElementById("spin-container");
+          spinContainer.appendChild(newImg); // Add image to gallery
+
+          updateGallery(); // Recalculate positions
+      };
+
+      reader.readAsDataURL(file); // Convert image to Base64 URL
+  }
+});
+
+// Function to update gallery after adding a new image
+function updateGallery() {
+  let aImg = document.querySelectorAll("#spin-container img");
+  let totalImages = aImg.length;
+
+  for (let i = 0; i < totalImages; i++) {
+      aImg[i].style.transform = `rotateY(${i * (360 / totalImages)}deg) translateZ(${radius}px)`;
+  }
+}
+
+
