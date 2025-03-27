@@ -71,7 +71,7 @@ if (autoRotate) {
 // `;
 // }
 
-// setup events
+// setup event
 document.onpointerdown = function (e) {
   clearInterval(odrag.timer);
   e = e || window.event;
